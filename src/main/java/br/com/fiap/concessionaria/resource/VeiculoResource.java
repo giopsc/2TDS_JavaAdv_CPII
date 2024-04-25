@@ -15,7 +15,7 @@ import java.util.Set;
 @NoArgsConstructor
 
 
-public class Veiculo {
+public class VeiculoResource {
 
     private Long id;
 
@@ -34,10 +34,10 @@ public class Veiculo {
     //15 digitos
     private String palavraDeEfeito;
 
-    private Fabricante fabricante;
+    private FabricanteResource fabricante;
 
-    private TipoVeiculo tipo;
+    private TipoVeiculoResource tipo;
 
-    private Set<Acessorio> acessorios = new LinkedHashSet<>();
+    private Set<AcessorioResource> acessorios = new LinkedHashSet<>();
 
 }

@@ -16,6 +16,8 @@ import java.util.Collection;
 public class CaracteristicaService implements  ServiceDTO<Caracteristica, CaracteristicaRequest, CaracteristicaResponse>{
 
     @Autowired
+    private VeiculoService veiculoService;
+    @Autowired
     private CaracteristicaRepository repo;
     @Override
     public Collection<Caracteristica> findAll(Example<Caracteristica> example) {
@@ -34,7 +36,7 @@ public class CaracteristicaService implements  ServiceDTO<Caracteristica, Caract
 
     @Override
     public Caracteristica toEntity(CaracteristicaRequest dto) {
-        Veiculo veiculo = veiculoService.findById(dto.veiculo().id())
+        Veiculo veiculo = veiculoService.findById(dto.veiculo().id());
         return Caracteristica.builder()
                 .nome(dto.getNome())
                 .descricao(dto.getDescricao)
@@ -49,7 +51,7 @@ public class CaracteristicaService implements  ServiceDTO<Caracteristica, Caract
                 .id(e.getId())
                 .nome(e.getNome())
                 .descricao(e.getDescricao())
-                VeiculoService.ToResponse(e.getVeiculo())
+                .veiculoService.ToResponse(e.getVeiculo())
                 .build();
     }
 }

@@ -5,18 +5,22 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.LinkedHashSet;
+import java.util.Set;
+
+
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 
 
-public class Acessorio {
+public class LojaResource {
 
     private Long id;
 
     private String nome;
 
-    private Double preco;
+    private Set<VeiculoResource> veiculosComercializados = new LinkedHashSet<>();
 
 }
