@@ -38,8 +38,8 @@ public class CaracteristicaService implements  ServiceDTO<Caracteristica, Caract
     public Caracteristica toEntity(CaracteristicaRequest dto) {
         Veiculo veiculo = veiculoService.findById(dto.veiculo().id());
         return Caracteristica.builder()
-                .nome(dto.getNome())
-                .descricao(dto.getDescricao)
+                .nome(dto.nome())
+                .descricao(dto.descricao())
                 .veiculo(veiculo)
                 .build();
     }
@@ -51,7 +51,7 @@ public class CaracteristicaService implements  ServiceDTO<Caracteristica, Caract
                 .id(e.getId())
                 .nome(e.getNome())
                 .descricao(e.getDescricao())
-                .veiculoService.ToResponse(e.getVeiculo())
+                .veiculo(veiculoService.toResponse(e.getVeiculo()))
                 .build();
     }
 }

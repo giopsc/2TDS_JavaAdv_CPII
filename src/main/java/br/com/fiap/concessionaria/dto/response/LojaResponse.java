@@ -1,20 +1,17 @@
 package br.com.fiap.concessionaria.dto.response;
 
-
 import lombok.Builder;
 
-
-import java.util.LinkedHashSet;
 import java.util.Set;
 
-
 @Builder
-public class LojaResponse {
+public record LojaResponse (
 
-    private Long id;
+    Long id,
+    String nome,
+    Set<VeiculoResponse> veiculosComercializados
 
-    private String nome;
-
-    private Set<VeiculoResponse> veiculosComercializados = new LinkedHashSet<>();
+) {
 
 }
+

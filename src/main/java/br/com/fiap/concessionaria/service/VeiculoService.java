@@ -26,34 +26,40 @@ public class VeiculoService implements ServiceDTO<Veiculo, VeiculoRequest, Veicu
     private VeiculoRepository repo;
     @Override
     public Collection<Veiculo> findAll(Example<Veiculo> example) {
+
         return repo.findAll(example);
+
     }
 
     @Override
     public Veiculo findById(Long id) {
+
         return repo.findById(id).orElse(null);
+
     }
 
     @Override
     public Veiculo save(Veiculo e) {
+
         return repo.save(e);
+
     }
 
     @Override
     public Veiculo toEntity(VeiculoRequest dto) {
+
         Fabricante fabricante = fabricanteService.findById(dto.fabricante().id());
         TipoVeiculo tipoVeiculo = tipoVeiculoService.findById(dto.fabricante().id());
         return Veiculo.builder()
-                .nome(dto.getNome())
-                .cor(dto.getCor())
-                .preco(dto.getPreco())
-                .tipo(dto.getTipo())
-                .cilindradas(dto.getCilindradas())
-                .anoDeFabricacao(dto.getAnoDeFabricacao())
-                .palavraDeEfeito(dto.getPalavraDeEfeito)
-                .modelo(dto.getModelo())
+                .nome(dto.nome())
+                .cor(dto.cor())
+                .preco(dto.preco())
+                .tipo(tipoVeiculo)
+                .cilindradas(dto.cilindradas())
+                .anoDeFabricacao(dto.anoDeFabricacao())
+                .palavraDeEfeito(dto.palavraDeEfeito())
+                .modelo(dto.modelo())
                 .fabricante(fabricante)
-                .tipoVeiculo(tipoVeiculo)
                 .build();
     }
 
@@ -69,8 +75,8 @@ public class VeiculoService implements ServiceDTO<Veiculo, VeiculoRequest, Veicu
                 .anoDeFabricacao(e.getAnoDeFabricacao())
                 .palavraDeEfeito(e.getPalavraDeEfeito())
                 .modelo(e.getModelo())
-                .fabricanteService.ToResponse(e.getFabricante())
-                .tipoVeiculoService.ToResponse(e.getTipo())
+                .fabricante(fabricanteService.toResponse(e.getFabricante()))
+                .tipo(tipoVeiculoService.toResponse(e.getTipo()))
                 .build();
     }
 }

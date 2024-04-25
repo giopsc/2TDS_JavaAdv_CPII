@@ -5,12 +5,14 @@ import lombok.Builder;
 @Builder
 
 
-public class AcessorioResponse {
+public record AcessorioResponse (
 
-    private Long id;
+    Long id,
 
-    private String nome;
+    String nome,
 
-    private Double preco;
+    Double preco
+
+) {
 
 }

@@ -36,7 +36,7 @@ public class TipoVeiculoService implements ServiceDTO<TipoVeiculo, TipoVeiculoRe
     @Override
     public TipoVeiculo toEntity(TipoVeiculoRequest dto) {
         return TipoVeiculo.builder()
-                .nome(dto.getNome())
+                .nome(dto.nome())
                 .build();
 
     }

@@ -1,3 +1,5 @@
+package br.com.fiap.concessionaria.entity;
+
 import br.com.fiap.concessionaria.entity.Veiculo;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

@@ -3,9 +3,12 @@ package br.com.fiap.concessionaria.dto.response;
 
 import lombok.Builder;
 @Builder
-public class TipoVeiculoResponse {
+public record TipoVeiculoResponse (
 
-    private Long id;
+    Long id,
 
-    private String nome;
+    String nome
+
+){
+
 }

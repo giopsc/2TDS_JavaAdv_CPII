@@ -4,14 +4,14 @@ package br.com.fiap.concessionaria.service;
 import br.com.fiap.concessionaria.dto.request.AcessorioRequest;
 import br.com.fiap.concessionaria.dto.response.AcessorioResponse;
 import br.com.fiap.concessionaria.entity.Acessorio;
-import br.com.fiap.concessionaria.entity.;
 import br.com.fiap.concessionaria.repository.AcessorioRepository;
-import jakarta.persistence.Id;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
+
+;
 
 @Service
 public class AcessorioService implements ServiceDTO<Acessorio, AcessorioRequest, AcessorioResponse>{
@@ -37,8 +37,8 @@ public class AcessorioService implements ServiceDTO<Acessorio, AcessorioRequest,
     public Acessorio toEntity(AcessorioRequest dto) {
 
         return Acessorio.builder()
-                .preco(dto.getPreco())
-                .nome(dto.getNome())
+                .preco(dto.preco())
+                .nome(dto.nome())
                 .build();
     }
 

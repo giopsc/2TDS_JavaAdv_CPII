@@ -7,15 +7,13 @@ import lombok.Builder;
 
 
 @Builder
+public record FabricanteResponse (
 
-public class FabricanteResponse {
+    Long id,
 
-    private Long id;
+    String nome,
 
-    private String nome;
+    String nomeFantasia
 
-    private String nomeFantasia;
-
-
-
+) {
 }
